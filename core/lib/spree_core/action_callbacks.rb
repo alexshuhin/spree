@@ -17,3 +17,15 @@ module Spree
     end
   end
 end
+
+CanCan::ControllerResource.class_eval do
+  def collection_instance=(instance)
+    @controller.instance_variable_set("@collection", instance)
+    @controller.instance_variable_set("@#{instance_name.to_s.pluralize}", instance)
+  end
+  
+  def resource_instance=(instance)
+    @controller.instance_variable_set("@object", instance)
+    @controller.instance_variable_set("@#{instance_name}", instance)
+  end
+end

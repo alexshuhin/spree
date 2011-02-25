@@ -3,13 +3,13 @@ class Admin::ResourceController < Admin::BaseController
   helper_method :new_object_url, :edit_object_url, :object_url, :collection_url
   load_and_authorize_resource
   respond_to :html
-    
+  
   def update
     invoke_callbacks(:update, :before)
-    if object.update_attributes(params[object_name])
+    if @object.update_attributes(params[object_name])
       invoke_callbacks(:update, :after)
       flash[:notice] = I18n.t(:successfully_updated, :scope => object_name)
-      respond_with(object, :location => collection_url)
+      respond_with(@object, :location => collection_url)
     else
       render :edit
     end
@@ -17,10 +17,10 @@ class Admin::ResourceController < Admin::BaseController
 
   def create
     invoke_callbacks(:create, :before)
-    if object.save
+    if @object.save
       invoke_callbacks(:create, :after)
       flash[:notice] = I18n.t(:successfully_created, :scope => object_name)
-      respond_with(object, :location => collection_url)
+      respond_with(@object, :location => collection_url)
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class Admin::ResourceController < Admin::BaseController
   
   def destroy
     invoke_callbacks(:destroy, :before)
-    if object.destroy
+    if @object.destroy
       invoke_callbacks(:destroy, :after)
       flash[:notice] = I18n.t(:successfully_removed, :scope => object_name)
       respond_to do |format|
@@ -59,6 +59,7 @@ class Admin::ResourceController < Admin::BaseController
   end
 
   def invoke_callbacks(action, callback_type)
+    @@callbacks ||= {}
     @@callbacks[action] ||= Spree::ActionCallbacks.new
     case callback_type.to_sym
       when :before then @@callbacks[action].before_methods.each {|method| send method }
@@ -77,14 +78,6 @@ class Admin::ResourceController < Admin::BaseController
   
   def object_name
     controller_name.singularize
-  end
-  
-  def collection
-    @collection ||= instance_variable_get "@#{controller_name}"
-  end
-  
-  def object
-    @object ||= instance_variable_get "@#{object_name}"
   end
 
   # URL helpers
