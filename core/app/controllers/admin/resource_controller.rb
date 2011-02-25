@@ -2,10 +2,6 @@ class Admin::ResourceController < Admin::BaseController
   helper_method :new_object_url, :edit_object_url, :object_url, :collection_url
   load_and_authorize_resource
   respond_to :html
-
-  def index  
-    respond_with(collection)
-  end
   
   def update
     if object.update_attributes(params[object_name])
@@ -59,23 +55,23 @@ class Admin::ResourceController < Admin::BaseController
     @object ||= instance_variable_get "@#{object_name}"
   end
 
-  def new_object_url(*params)
-    eval "new_admin_#{object_name}_url(#{params})"
+  def new_object_url(options = {})
+    new_polymorphic_url([:admin, model_class], options)
   end
   
-  def edit_object_url(object, *params)
-    send "edit_admin_#{object_name}_url", object, params
+  def edit_object_url(object, options = {})
+    edit_polymorphic_url([:admin, object], options)
   end
   
-  def object_url(object = nil)
+  def object_url(object = nil, options = {})
     if object
-      send "admin_#{object_name}_url", object
+      polymorphic_url([:admin, object], options)
     else
-      @object
+      [:admin, @object]
     end
   end
   
-  def collection_url
-    send "admin_#{controller_name}_url"
+  def collection_url(options = {})
+    polymorphic_url([:admin, model_class], options)
   end
 end
