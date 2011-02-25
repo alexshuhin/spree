@@ -22,7 +22,7 @@ class Admin::ResourceController < Admin::BaseController
       flash[:notice] = I18n.t(:successfully_created, :scope => object_name)
       respond_with(@object, :location => collection_url)
     else
-      render :edit
+      render :new
     end
   end
   
@@ -87,14 +87,17 @@ class Admin::ResourceController < Admin::BaseController
   end
   
   def edit_object_url(object, options = {})
-    edit_polymorphic_url([:admin, object], options)
+    #edit_polymorphic_url([:admin, object], options)
+    send "edit_admin_#{object_name}_url", object, options
   end
   
   def object_url(object = nil, options = {})
     if object
-      polymorphic_url([:admin, object], options)
+      #polymorphic_url([:admin, object], options)
+      send "admin_#{object_name}_url", object, options
     else
-      [:admin, @object]
+      #[:admin, @object]
+      send "admin_#{object_name}_url", @object
     end
   end
   
