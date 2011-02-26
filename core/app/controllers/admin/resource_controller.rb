@@ -2,14 +2,23 @@ require 'spree_core/action_callbacks'
 class Admin::ResourceController < Admin::BaseController
   helper_method :new_object_url, :edit_object_url, :object_url, :collection_url
   load_and_authorize_resource
+
   respond_to :html
   
+  def new
+    render :layout => !request.xhr?
+  end
+  
+  def edit
+    render :layout => !request.xhr?
+  end
+    
   def update
     invoke_callbacks(:update, :before)
     if @object.update_attributes(params[object_name])
       invoke_callbacks(:update, :after)
       flash[:notice] = I18n.t(:successfully_updated, :scope => object_name)
-      respond_with(@object, :location => collection_url)
+      respond_with(@object, :location => location_after_save)
     else
       render :edit
     end
@@ -20,7 +29,7 @@ class Admin::ResourceController < Admin::BaseController
     if @object.save
       invoke_callbacks(:create, :after)
       flash[:notice] = I18n.t(:successfully_created, :scope => object_name)
-      respond_with(@object, :location => collection_url)
+      respond_with(@object, :location => location_after_save)
     else
       render :new
     end
@@ -42,6 +51,14 @@ class Admin::ResourceController < Admin::BaseController
   end
  
   protected
+  
+  def collection
+    model_class.accessible_by(current_ability)
+  end
+  
+  def location_after_save
+    collection_url
+  end
   
   def self.create
     @@callbacks ||= {}
@@ -73,7 +90,7 @@ class Admin::ResourceController < Admin::BaseController
   end
   
   def model_class
-    object_name.classify.constantize
+    controller_name.classify.constantize
   end
   
   def object_name
