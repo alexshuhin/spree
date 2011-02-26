@@ -6,7 +6,6 @@ class Admin::ProductScopesController < Admin::BaseController
     @product_scope = @product_group.product_scopes.build(params[:product_scope])
 
     if @product_scope.save
-      flash[:notice] = I18n.t(:successfully_created, :scope => :product_scope)
       respond_to do |format|
         format.html { redirect_to edit_admin_product_group_path(@product_group) }
         format.js   { render :layout => false }
@@ -21,7 +20,6 @@ class Admin::ProductScopesController < Admin::BaseController
     if @product_scope.destroy
       @product_group = @product_scope.product_group
       @product_group.update_memberships
-      flash[:notice] = I18n.t(:successfully_removed, :scope => :product_scope)
       respond_to do |format|
         format.html { redirect_to edit_admin_product_group_path(@product_group) }
         format.js   { render :layout => false }
