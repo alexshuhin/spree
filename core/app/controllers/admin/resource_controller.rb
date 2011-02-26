@@ -18,7 +18,10 @@ class Admin::ResourceController < Admin::BaseController
     if @object.update_attributes(params[object_name])
       invoke_callbacks(:update, :after)
       flash[:notice] = I18n.t(:successfully_updated, :scope => object_name)
-      respond_with(@object, :location => location_after_save)
+      respond_to do |format|
+        format.html { redirect_to location_after_save }
+        format.js   { render :layout => false }      
+      end
     else
       render :edit
     end
@@ -29,7 +32,10 @@ class Admin::ResourceController < Admin::BaseController
     if @object.save
       invoke_callbacks(:create, :after)
       flash[:notice] = I18n.t(:successfully_created, :scope => object_name)
-      respond_with(@object, :location => location_after_save)
+      respond_to do |format|
+        format.html { redirect_to location_after_save }
+        format.js   { render :layout => false }      
+      end
     else
       render :new
     end
@@ -47,7 +53,6 @@ class Admin::ResourceController < Admin::BaseController
     else
       redirect_to collection_url
     end
-
   end
  
   protected
