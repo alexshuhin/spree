@@ -17,7 +17,7 @@ Feature: Admin visiting option types
     When I fill in "option_type_name" with "shirt colors"
     When I fill in "option_type_presentation" with "colors"
     When I press "Create"
-    Then I should see "Successfully created!"
+    Then I should see "successfully created!"
 
   Scenario: edit option type
     Given 2 option types exist
@@ -27,5 +27,5 @@ Feature: Admin visiting option types
     When I click on first link with class "admin_edit_option_type"
     When I fill in "option_type_name" with "foo-size 99"
     When I press "Update"
-    Then I should see "Successfully updated!"
+    Then I should see "successfully updated!"
     Then I should see "foo-size 99"

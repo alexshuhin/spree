@@ -16,4 +16,4 @@ Feature: Admin > configurations > payment_methods
     When I fill in "payment_method_name" with "check90"
     When I fill in "payment_method_description" with "check90 desc"
     When I press "Create"
-    Then I should see "Successfully created!"
+    Then I should see "successfully created!"

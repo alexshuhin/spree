@@ -17,4 +17,4 @@ Feature: Admin > configurations > tax_categories
     When I fill in "tax_category_name" with "sports goods"
     When I fill in "tax_category_description" with "sports goods desc"
     When I press "Create"
-    Then I should see "Successfully created!"
+    Then I should see "successfully created!"

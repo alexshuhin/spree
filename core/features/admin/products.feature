@@ -39,10 +39,10 @@ Feature: Admin visiting products
     When I fill in "product_price" with "100"
     When I fill in "product_available_on" with "2011/01/24"
     When I press "Create"
-    Then I should see "Successfully created!"
+    Then I should see "successfully created!"
     When I fill in "product_on_hand" with "100"
     When I press "Update"
-    Then I should see "Successfully updated!"
+    Then I should see "successfully updated!"
     When I follow "Products"
 
   @javascript
@@ -58,4 +58,4 @@ Feature: Admin visiting products
     When I click on first link with class "admin_edit_product"
     When I fill in "product_name" with "apache baseball cap 99"
     When I press "Update"
-    Then I should see "Successfully updated!"
+    Then I should see "successfully updated!"

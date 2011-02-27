@@ -15,4 +15,4 @@ Feature: Admin > configurations > taxonomies
     Then I should see "New Taxonomy"
     When I fill in "taxonomy_name" with "sports"
     When I press "Create"
-    Then I should see "Successfully created!"
+    Then I should see "successfully created!"

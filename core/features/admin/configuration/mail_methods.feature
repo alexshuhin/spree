@@ -7,4 +7,4 @@ Feature: Admin > configurations > mail_methods
     When I follow "admin_new_mail_method_link"
     Then I should see "New Mail Method"
     When I press "Create"
-    Then I should see "Successfully created!"
+    Then I should see "successfully created!"
