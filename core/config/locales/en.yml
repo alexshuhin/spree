@@ -373,6 +373,7 @@ en:
   enter_password_to_confirm: "(we need your current password to confirm your changes)"
   environment: "Environment"
   error: error
+
   errors:
     messages:
       no_shipping_methods_available: "No shipping methods available for selected location, please change your address and try again."
@@ -640,6 +641,7 @@ en:
   problem_authorizing_card: "Problem authorizing credit card"
   problem_capturing_card: "Problem capturing credit card"
   problems_processing_order: "We had problems processing your order"
+  problems_in_following_fields: "There were problems with the following fields"
   proceed_as_guest: "No Thanks, Proceed as Guest"
   process: Process
   product: Product
@@ -767,6 +769,7 @@ en:
         sentence: with property <em>%s</em> and value <em>%s</em>
   products: Products
   products_with_zero_inventory_display: "Products with a zero inventory will %{not} be displayed"
+  prohibited_this_record: "prohibited this record from being saved"
   properties: Properties
   property: Property
   prototype: Prototype
