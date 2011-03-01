@@ -1,9 +1,11 @@
 ---
 en:
   add_rule_of_type: Add rule of type
+  combine_description: May be combined with other promotions
   coupon: Coupon
   coupon_code: Coupon code
   editing_promotion: Editing Promotion
+  expiry: Expiry
   free_shipping: Free Shipping
   new_promotion: New Promotion
   no_rules_added: No rules added
@@ -34,6 +36,7 @@ en:
     product_source:
       group: From product group
       manual: Manually choose
+  rules: Rules
   user_rule:
     choose_users: Choose users
   item_total_rule:
