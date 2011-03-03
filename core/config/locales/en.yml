@@ -768,7 +768,7 @@ en:
         sentence: with property <em>%s</em> and value <em>%s</em>
   products: Products
   products_with_zero_inventory_display: "Products with a zero inventory will %{not} be displayed"
-  prohibited_this_record_from_being_saved: "prohibited this record from being saved"
+  prohibited_this_record: "prohibited this record from being saved"
   properties: Properties
   property: Property
   prototype: Prototype
