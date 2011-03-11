@@ -5,16 +5,8 @@
   <%= render :partial => 'shared/head'%>
 <% end %>
 </head>
-<%
-if @body_class.nil?
-  if content_for?(:sidebar)
-    @body_class = 'two-col'
-  else
-    @body_class = 'one-col'
-  end
-end
- %>
-<body class="<%= @body_class %>" id="<%= @body_id %>">
+
+<body class="<%= body_class %>" id="<%= @body_id %>">
   <div id="header" class="container_bg">
     <div class="container">
     <div id="login-bar">
@@ -45,7 +37,7 @@ end
       <% end %>
       <%= yield %>
     </div>
-    <%= render :partial => 'shared/footer'%>
+    <%= render :partial => 'shared/footer' %>
   </div>
 
 </body>
