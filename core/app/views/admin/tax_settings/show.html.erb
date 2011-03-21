@@ -5,7 +5,7 @@
 <table id='listing_tax_settings'>
   <tr>
     <th scope="row"><%= t("show_price_inc_vat") %>:</th>
-    <td><%=  Spree::Config[:show_price_inc_vat] %></td>
+    <td><%= Spree::Config[:show_price_inc_vat] ? t("yes") : t("no") %></td>
   </tr>
 </table>
 
