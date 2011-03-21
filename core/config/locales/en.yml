@@ -325,6 +325,7 @@ en:
   creditcard: Creditcard
   creditcards: Creditcards
   credits: Credits
+  currency_code: "Currency Code"
   current: Current
   customer: Customer
   customer_details: "Customer Details"
@@ -488,6 +489,7 @@ en:
   mark_shipped: "Mark Shipped"
   master_price: "Master Price"
   max_items: Max Items
+  merchant_id: Merchant Id
   meta_description: "Meta Description"
   meta_keywords: "Meta Keywords"
   metadata: "Metadata"
@@ -631,6 +633,7 @@ en:
     void: void
   payment_updated: Payment Updated
   payments: Payments
+  pem: PEM
   pending_payments: Pending Payments
   permalink: Permalink
   phone: Phone
@@ -643,6 +646,7 @@ en:
   price: Price
   price_bucket: Price Bucket
   price_with_vat_included: "%{price} (inc. VAT)"
+  private_key: Private Key
   problem_authorizing_card: "Problem authorizing credit card"
   problem_capturing_card: "Problem capturing credit card"
   problems_processing_order: "We had problems processing your order"
@@ -779,6 +783,7 @@ en:
   prototypes: Prototypes
   provider: "Provider"
   provider_settings_warning: "If you are changing the provider type, you must save first before you can edit the provider settings"
+  public_key: Public Key
   qty: Qty
   quantity_shipped: Quantity Shipped
   quantity_returned: Quantity Returned
@@ -832,6 +837,7 @@ en:
   searching: Searching
   secure_connection_type: Secure Connection Type
   secure_creditcard: Secure Creditcard
+  secure_profile_api_key: Secure Profile API Key
   select: Select
   select_from_prototype: "Select From Prototype"
   select_preferred_shipping_option: "Select preferred shipping option"
@@ -884,6 +890,7 @@ en:
   show_price_inc_vat: "Show price including VAT"
   showing_first_n: "Showing first %{n}"
   sign_up: "Sign up"
+  signature: "Signature"
   site_name: "Site Name"
   site_url: "Site URL"
   sku: SKU
