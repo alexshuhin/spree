@@ -7,7 +7,7 @@
   <%= ProductGroup.human_attribute_name(:url) %>: <%= link_to @product_group.permalink, "/pg/#{@product_group.permalink}" %>
 </p>
 
-<h2><%= ProductGroup.human_attribute_name(:product_scopes) %>(<%= @product_group.product_scopes.count %>)</h2>
+<h2><%= ProductGroup.human_attribute_name(:product_scopes) %> (<%= @product_group.product_scopes.count %>)</h2>
 <table class="product-scopes">
   <thead>
     <tr>
